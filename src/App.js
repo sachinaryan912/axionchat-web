@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AxionChatLanding from "./AxionChatLanding";
+import AxionChatOldVersions from "./AxionChatOldVersions";
+import Features from "./pages/Features";
+import Security from "./pages/Security";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Layout from "./components/Layout";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<AxionChatLanding />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route
+              path="/downloads/old-versions"
+              element={<AxionChatOldVersions />}
+            />
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
   );
 }
 

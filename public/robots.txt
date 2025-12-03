@@ -1,3 +1,27 @@
 # https://www.robotstxt.org/robotstxt.html
+# AxionChat - Secure Messaging App
+
+# Allow all crawlers
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Google Bot
+User-agent: Googlebot
+Allow: /
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://axionchat.online/sitemap.xml
+
+# Crawl delay (optional - only if needed)
+# Crawl-delay: 10
+
