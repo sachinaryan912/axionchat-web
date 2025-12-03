@@ -1,3 +1,4 @@
+import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -5,16 +6,18 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDrNhtMR1n5eHtzt9K-bAqQjEWVLo1JnJM",
-  authDomain: "chatloop-47825.firebaseapp.com",
-  databaseURL: "https://chatloop-47825-default-rtdb.firebaseio.com",
-  projectId: "chatloop-47825",
-  storageBucket: "chatloop-47825.firebasestorage.app",
-  messagingSenderId: "24261375804",
-  appId: "1:24261375804:web:2c50ff11cefd1e48ae5039",
-  measurementId: "G-8YXDQVT3S3"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export { app, analytics };
